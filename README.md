@@ -572,11 +572,4 @@ The goal is to keep the text-to-speech stage simple, reproducible, and easy to r
 
 ## License
 
-No license has currently been specified for this project.
-
-```
-
-One thing I deliberately **didn't** put in there is a made-up installation command or dependency version list. Your source imports Kokoro, PyTorch-related Kokoro dependencies, NumPy, SoundFile, SoundDevice, Requests, etc., but the source itself doesn't specify pinned versions or an installation mechanism. So I left that section accurate rather than inventing a `requirements.txt` that may not match your environment. :contentReference[oaicite:1]{index=1}
-
-Also, I kept the README focused on what the program **is now** rather than what we might eventually make it. That's probably the right GitHub README for this point in the project's life.
-```
+MIT License
