@@ -1,0 +1,2 @@
+Karen=kɛɹn
+resume=ɹɛzəmeɪ
