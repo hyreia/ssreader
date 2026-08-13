@@ -105,7 +105,7 @@ The Kokoro model and its dependencies may require additional platform-specific i
 Once the dependencies are installed, run the program with Python:
 
 ```bash
-python ao3tts.py
+python ssreader.py
 ```
 
 ## Basic Usage
@@ -113,7 +113,7 @@ python ao3tts.py
 Render a Markdown story:
 
 ```bash
-python ao3tts.py story.md
+python ssreader.py story.md
 ```
 
 The default voice is:
@@ -131,19 +131,19 @@ The program renders individual lines and, unless `--nomerge` is specified, creat
 Use `--voice` or `-v`:
 
 ```bash
-python ao3tts.py story.md --voice af_nicole
+python ssreader.py story.md --voice af_nicole
 ```
 
 Kokoro voices can also be blended by separating them with commas:
 
 ```bash
-python ao3tts.py story.md --voice af_nicole,af_bella
+python ssreader.py story.md --voice af_nicole,af_bella
 ```
 
 To retrieve the voices currently available from the Kokoro model:
 
 ```bash
-python ao3tts.py --voice_list
+python ssreader.py --voice_list
 ```
 
 The program will query the Kokoro model repository and print the available voice names.
@@ -153,7 +153,7 @@ The program will query the Kokoro model repository and print the available voice
 Use `--speed` or `-s`:
 
 ```bash
-python ao3tts.py story.md --speed 1.1
+python ssreader.py story.md --speed 1.1
 ```
 
 The default speed is `1.2`.
@@ -163,7 +163,7 @@ The default speed is `1.2`.
 Use `--format` or `-f`:
 
 ```bash
-python ao3tts.py story.md --format wav
+python ssreader.py story.md --format wav
 ```
 
 The default output format is:
@@ -179,7 +179,7 @@ The program passes the requested format to SoundFile, so the supported formats d
 Use `--section` or `-c`:
 
 ```bash
-python ao3tts.py story.md --section "Act III — The Collection"
+python ssreader.py story.md --section "Act III — The Collection"
 ```
 
 Only the specified section will be rendered.
@@ -191,7 +191,7 @@ This is useful when revising a story and needing to regenerate only one act rath
 Use `--nomerge` or `-n`:
 
 ```bash
-python ao3tts.py story.md --nomerge
+python ssreader.py story.md --nomerge
 ```
 
 This renders the individual line files but does not create the combined section files.
@@ -203,13 +203,13 @@ This is useful when generating source audio for later editing.
 Use `--mergeonly` or `-m` to skip TTS generation and merge audio files that already exist:
 
 ```bash
-python ao3tts.py --mergeonly --story "The Collection"
+python ssreader.py --mergeonly --story "The Collection"
 ```
 
 To merge only one section:
 
 ```bash
-python ao3tts.py --mergeonly --story "The Collection" --section "Act III — The Collection"
+python ssreader.py --mergeonly --story "The Collection" --section "Act III — The Collection"
 ```
 
 Existing audio files in the section folder are sorted alphanumerically before being concatenated.
@@ -223,14 +223,14 @@ This makes it possible to replace or edit individual line files and then rebuild
 Use `--read` or `-r` to render arbitrary text without creating a story:
 
 ```bash
-python ao3tts.py --read "The lights went out."
+python ssreader.py --read "The lights went out."
 
 ```
 
 Specify an output filename with `--output`:
 
 ```bash
-python ao3tts.py \
+python ssreader.py \
     --read "The lights went out." \
     --output test
 ```
@@ -242,7 +242,7 @@ The older `--test_text` / `-t` option provides the same functionality.
 For example:
 
 ```bash
-python ao3tts.py \
+python ssreader.py \
     --read "Kevin stood beside the loading door." \
     --voice af_nicole,af_bella \
     --speed 1.1 \
@@ -256,7 +256,7 @@ This is particularly useful for testing pronunciation, voices, or alternate read
 A pronunciation guide can be supplied with `--pronunciation_guide` or `-p`:
 
 ```bash
-python ao3tts.py story.md --pronunciation_guide pronunciation.txt
+python ssreader.py story.md --pronunciation_guide pronunciation.txt
 ```
 
 The guide uses a simple `word=pronunciation` format:
@@ -425,7 +425,7 @@ Things get worse.
 ### 2. Render the story
 
 ```bash
-python ao3tts.py story.md
+python ssreader.py story.md
 ```
 
 ### 3. Listen to individual lines
@@ -439,7 +439,7 @@ This makes it easy to identify lines that need another take.
 Use `--read` to generate a replacement:
 
 ```bash
-python ao3tts.py \
+python ssreader.py \
     --read "The corrected version of this sentence." \
     --output replacement
 ```
@@ -453,7 +453,7 @@ Replace the original line audio with the new take.
 ### 6. Merge the section
 
 ```bash
-python ao3tts.py \
+python ssreader.py \
     --mergeonly \
     --story "My Story" \
     --section "Act I"
@@ -519,7 +519,7 @@ Other Markdown syntax is currently treated as ordinary text.
 A complete example:
 
 ```bash
-python ao3tts.py \
+python ssreader.py \
     "The Collection.md" \
     --voice af_nicole,af_bella \
     --speed 1.1 \
@@ -529,7 +529,7 @@ python ao3tts.py \
 To regenerate only Act III:
 
 ```bash
-python ao3tts.py \
+python ssreader.py \
     "The Collection.md" \
     --section "Act III — The Collection"
 ```
@@ -537,7 +537,7 @@ python ao3tts.py \
 To render only the individual line files:
 
 ```bash
-python ao3tts.py \
+python ssreader.py \
     "The Collection.md" \
     --nomerge
 ```
@@ -545,7 +545,7 @@ python ao3tts.py \
 To rebuild an existing section after replacing individual files:
 
 ```bash
-python ao3tts.py \
+python ssreader.py \
     --mergeonly \
     --story "The Collection" \
     --section "Act III — The Collection"
