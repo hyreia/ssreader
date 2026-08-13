@@ -1,4 +1,3 @@
-````markdown
 # Kokoro Story Reader
 
 A lightweight text-to-speech pipeline for turning Markdown-formatted stories into organized narration files using [Kokoro](https://huggingface.co/hexgrad/Kokoro-82M).
