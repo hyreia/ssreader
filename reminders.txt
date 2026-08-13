@@ -2,7 +2,16 @@ X --nomerge: creates all lines, doesn't make a combined version (merge)
 X --mergeonly: don't create the lines, just merge the existing files in alphanumerical order
 X --section: skips all sections that don't have the given name (can be used with nomerge and mergeonly)
 
+
+
+
+
 --read "text to read" -o output filename
+
+Directives are only recognized at the beginning of a sentence.
+Multiple directives may appear consecutively.
+The first non-directive text ends the directive region.
+Directive state persists until changed.
 
 Supported inline directives:
 
@@ -17,10 +26,10 @@ Supported inline directives:
 <break> 
     Insert a four second pause of silence before the next sentence.
 
-<reset>
-    resets voice and speed back to defaults
+<gain NUMBER>
+    Adjust the db for sound going forward
+    Note: text in quotes by default are louder than the default narration voice (1.75 dB gain, 2 seems too loud)
 
-Directives are only recognized at the beginning of a sentence.
-Multiple directives may appear consecutively.
-The first non-directive text ends the directive region.
-Directive state persists until changed.
+<reset>
+    resets voice gain and speed back to defaults
+
